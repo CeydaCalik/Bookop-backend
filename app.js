@@ -3,9 +3,12 @@ const mongoose = require('mongoose');
 const cors = require('cors');
 require('dotenv').config();
 
+
 const authRoutes = require('./routes/auth.route');
 
 const favoriteRoute = require('./routes/favoriteBook.route');
+
+const reviewRoute = require('./routes/reviews.route');
 
 
 const app = express();
@@ -19,6 +22,7 @@ app.use(cors({
 
 app.use('/api/favorites', favoriteRoute);
 
+app.use('/api/reviews', reviewRoute);
 
 app.use('/api/auth', authRoutes);
 

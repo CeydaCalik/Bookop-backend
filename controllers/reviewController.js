@@ -1,6 +1,6 @@
-import Reviews from "../models/Reviews";
+const Reviews = require("../models/Reviews");
 
-export const createReview = async (req, res) => {
+exports.createReview = async (req, res) => {
     try {
         const review = await Reviews.create({
             userId: req.user.id,
@@ -13,8 +13,7 @@ export const createReview = async (req, res) => {
     }
 };
 
-
-export const getReviews = async (req, res) => {
+exports.getReviews = async (req, res) => {
     try {
         const reviews = await Reviews.find({
             bookId: req.params.bookId
@@ -24,4 +23,4 @@ export const getReviews = async (req, res) => {
     } catch (err) {
         res.status(500).json(err);
     }
-}
+};
